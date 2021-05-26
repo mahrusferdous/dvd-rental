@@ -1,1 +1,1 @@
-# -dvd-rental
+# dvd-rental
