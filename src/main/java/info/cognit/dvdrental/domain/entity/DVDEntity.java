@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "FILM", schema = "hr-dev")
+@Table(name = "FILM", schema = "HR")
 @Data
 public class DVDEntity {
     @Id
