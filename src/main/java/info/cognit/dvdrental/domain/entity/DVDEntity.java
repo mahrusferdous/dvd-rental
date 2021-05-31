@@ -1,6 +1,7 @@
 package info.cognit.dvdrental.domain.entity;
 
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 public class DVDEntity {
     @Id
     @Column(name = "FILM_ID")
-    private int filmId;
+    private long filmId;
 
     @Column(name = "TITLE")
     private String title;

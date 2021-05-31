@@ -7,5 +7,7 @@ import java.util.List;
 public interface DVDService {
     List<DVDEntity> getAllDVDs();
 
-    DVDEntity getDVDById();
+    DVDEntity getDVDById(long filmId);
+
+    DVDEntity getDVDbyTitleAndReleaseYear(String title, Integer releaseYear);
 }
