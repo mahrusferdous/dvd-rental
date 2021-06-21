@@ -1,5 +1,8 @@
 package info.cognit.dvdrental.validator;
 
+import info.cognit.dvdrental.domain.entity.CustomerEntity;
+import info.cognit.dvdrental.domain.entity.FilmEntity;
+import info.cognit.dvdrental.dto.FilmRequest;
 import info.cognit.dvdrental.dto.Response;
 import info.cognit.dvdrental.dto.ResponseStatus;
 import org.springframework.http.HttpStatus;
@@ -18,5 +21,23 @@ public class FilmValidator {
             response.setMessage("ReleaseYear cannot be null");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public Response<FilmEntity> validateRequiredFields(FilmRequest filmRequest) {
+        Response<FilmEntity> response = new Response<>();
+
+        if (filmRequest.getFilm() == null || isEmpty(filmRequest.getFilm().getTitle())) {
+            response.setStatus(ResponseStatus.ERROR);
+            response.setMessage("Film title is required");
+        }
+
+        return response;
+    }
+
+    private static boolean isEmpty(String value) {
+        if (value == null || value.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 }

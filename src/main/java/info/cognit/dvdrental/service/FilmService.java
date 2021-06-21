@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface FilmService {
 
-    List<FilmEntity> getAllDVDs();
-
-    FilmEntity getDVDById(Long filmId);
+    FilmEntity getFilmById(Long filmId);
 
     List<FilmEntity> getAllFilmByTitleAndReleaseYear(String title, Integer releaseYear);
 
     Response<FilmEntity> addFilm(FilmRequest filmRequest);
+
+    List<FilmEntity> getAllFilms();
+
 }

@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "FILM")
@@ -26,11 +25,11 @@ public class FilmEntity {
     private Integer releaseYear;
 
     @Column(name = "LANGUAGE_ID")
-    private Integer languageId;
+    private Long languageId;
 
     @Column(name = "RENTAL_DURATION")
     private Integer rentalDuration;
 
-    @Column(name = "LAST_UPDATE")
-    private LocalDateTime lastUpdate;
+    @Column(name = "rental_rate")
+    private Double rentalRate;
 }

@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface FilmRepo extends CrudRepository<FilmEntity, Long> {
-    List<FilmEntity> findDVDByTitleAndReleaseYear(String title, Integer releaseYear);
     FilmEntity findFilmByTitle(String title);
+    List<FilmEntity> findFilmByTitleAndReleaseYear(String title, Integer releaseYear);
 }

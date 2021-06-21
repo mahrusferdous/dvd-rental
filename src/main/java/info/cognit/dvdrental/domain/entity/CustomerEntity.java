@@ -17,7 +17,7 @@ public class CustomerEntity {
     private Long customerId;
 
     @Column(name = "STORE_ID")
-    private Integer storeId;
+    private Long storeId;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -29,7 +29,7 @@ public class CustomerEntity {
     private String email;
 
     @Column(name = "ADDRESS_ID")
-    private Integer addressId;
+    private Long addressId;
 
     @Column(name = "ACTIVEBOOL")
     private boolean activeBool;

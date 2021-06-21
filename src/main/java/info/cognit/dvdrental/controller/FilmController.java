@@ -24,12 +24,12 @@ public class FilmController {
 
     @GetMapping("/all")
     public List<FilmEntity> getAll() {
-        return filmService.getAllDVDs();
+        return filmService.getAllFilms();
     }
 
     @GetMapping(value = "/{filmId}")
     public FilmEntity getOneDVDByFilmId(@PathVariable Long filmId) {
-        return filmService.getDVDById(filmId);
+        return filmService.getFilmById(filmId);
     }
 
     @GetMapping(value = "/all", params = {"title", "releaseYear"})
@@ -48,9 +48,19 @@ public class FilmController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+//    @PostMapping("/add")
+//    public ResponseEntity<Response> add(@RequestBody FilmRequest filmRequest) {
+//        Response<FilmEntity> response = filmValidator.validateRequiredFields(filmRequest);
+//        if (response.getStatus() == ResponseStatus.ERROR) {
+//            response = filmService.addFilm(filmRequest);
+//        }
+//        return new ResponseEntity<>(response, HttpStatus.OK);
+//    }
+
     @PostMapping("/add")
     public ResponseEntity<Response> add(@RequestBody FilmRequest filmRequest) {
         Response<FilmEntity> response = filmService.addFilm(filmRequest);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
 }
