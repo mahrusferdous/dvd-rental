@@ -11,14 +11,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FilmValidator {
-    public ResponseEntity<Response> validateGetFilmByTitleAndReleaseYear(String title, Integer releaseYear) {
+    public ResponseEntity<Response> validateGetFilmByTitle(String title) {
         Response response = new Response();
         if (title == null || title.isEmpty()) {
             response.setStatus(ResponseStatus.ERROR);
             response.setMessage("Title cannot be null");
-        } else if (releaseYear == null) {
-            response.setStatus(ResponseStatus.ERROR);
-            response.setMessage("ReleaseYear cannot be null");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

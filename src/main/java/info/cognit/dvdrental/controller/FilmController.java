@@ -32,16 +32,16 @@ public class FilmController {
         return filmService.getFilmById(filmId);
     }
 
-    @GetMapping(value = "/all", params = {"title", "releaseYear"})
-    public ResponseEntity<Response> getDVDByTitleAndReleaseYear(@RequestParam("title") String title, @RequestParam("releaseYear") Integer releaseYear) {
-        ResponseEntity<Response> responseEntity = filmValidator.validateGetFilmByTitleAndReleaseYear(title, releaseYear);
+    @GetMapping(value = "/all", params = {"title"})
+    public ResponseEntity<Response> getDVDByTitleAndReleaseYear(@RequestParam("title") String title) {
+        ResponseEntity<Response> responseEntity = filmValidator.validateGetFilmByTitle(title);
 
         if(responseEntity.getBody().getStatus() == ResponseStatus.ERROR) {
             return responseEntity;
         }
 
-        List<FilmEntity> film = filmService.getAllFilmByTitleAndReleaseYear(title, releaseYear);
-        Response<List<FilmEntity>> response = new Response<>();
+        FilmEntity film = filmService.getAllFilmByTitle(title);
+        Response<FilmEntity> response = new Response<>();
         response.setBody(film);
         response.setStatus(ResponseStatus.SUCCESS);
 

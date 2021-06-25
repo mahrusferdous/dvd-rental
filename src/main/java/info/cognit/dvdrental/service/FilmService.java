@@ -10,10 +10,9 @@ public interface FilmService {
 
     FilmEntity getFilmById(Long filmId);
 
-    List<FilmEntity> getAllFilmByTitleAndReleaseYear(String title, Integer releaseYear);
-
     Response<FilmEntity> addFilm(FilmRequest filmRequest);
 
     List<FilmEntity> getAllFilms();
 
+    FilmEntity getAllFilmByTitle(String title);
 }

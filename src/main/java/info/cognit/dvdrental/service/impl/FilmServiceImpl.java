@@ -49,16 +49,16 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public FilmEntity getAllFilmByTitle(String title) {
+        return filmRepo.findFilmByTitle(title);
+    }
+
+    @Override
     public FilmEntity getFilmById(Long id) {
         Optional<FilmEntity> byId = filmRepo.findById(id);
 //        if(byId.isPresent()) {
             return byId.get();
 //        }
-    }
-
-    @Override
-    public List<FilmEntity> getAllFilmByTitleAndReleaseYear(String title, Integer releaseYear) {
-        return filmRepo.findFilmByTitleAndReleaseYear(title, releaseYear);
     }
 
     @Override
@@ -103,10 +103,10 @@ public class FilmServiceImpl implements FilmService {
             response.setMessage("Film is not available for renting");
         } else {
             PaymentEntity payment = paymentRepo.save(buildNewPayment(rental.getRentalId(), film.getRentalRate(), customer.getCustomerId()));
-//            response.setBody(payment);
+            response.setBody(payment);
         }
 
-        response.setBody(rental);
+//        response.setBody(rental);
         return response;
     }
 
